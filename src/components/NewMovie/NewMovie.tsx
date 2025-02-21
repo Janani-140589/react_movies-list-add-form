@@ -13,7 +13,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imgUrl, setImgUrl] = useState('');
-  const [imdbUrl, setImdburl] = useState('');
+  const [imdbUrl, setImdbUrl] = useState('');
   const [imdbId, setImdbId] = useState('');
 
   const submitdisable = !(
@@ -32,7 +32,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
     setTitle('');
     setDescription('');
     setImgUrl('');
-    setImdburl('');
+    setImdbUrl('');
     setImdbId('');
   };
 
@@ -67,7 +67,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
         name="imdbUrl"
         label="Imdb URL"
         value={imdbUrl}
-        onChange={setImdburl}
+        onChange={setImdbUrl}
         required
       />
 
