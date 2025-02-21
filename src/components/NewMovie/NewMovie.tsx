@@ -23,11 +23,12 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
     imdbId.trim()
   );
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     const newMovie = { title, description, imgUrl, imdbUrl, imdbId };
 
     onAdd(newMovie);
-    setCount(count + 1);
+    setCount(prev => prev + 1);
     setTitle('');
     setDescription('');
     setImgUrl('');
@@ -36,12 +37,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   };
 
   return (
-    <form
-      className="NewMovie"
-      key={count}
-      onSubmit={event => event.preventDefault()}
-      noValidate
-    >
+    <form className="NewMovie" key={count} onSubmit={handleSubmit} noValidate>
       <h2 className="title">Add a movie</h2>
 
       <TextField
@@ -90,7 +86,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
             disabled={submitdisable}
             data-cy="submit-button"
             className="button is-link"
-            onClick={handleSubmit}
           >
             Add
           </button>

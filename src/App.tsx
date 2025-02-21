@@ -7,11 +7,9 @@ import { Movie } from './types/Movie';
 
 export const App = () => {
   const [movies, setMovies] = useState(moviesFromServer);
-  const [count, setCount] = useState(movies.length);  
 
   const handleMovies = (movie: Movie) => {
     setMovies([...movies, movie]);
-    setCount(count + 1);
   };
 
   return (
